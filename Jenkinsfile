@@ -1,7 +1,7 @@
 node{
 		def DOCKERHUB_REPO = "prajwaldocker/rentalservice"
 		def DOCKER_SERVICE_ID = "rentalservice"
-		def DOCKER_IMAGE_VERSION = "11"
+		def DOCKER_IMAGE_VERSION = "latest"
 		
 		stage("clean workspace")
 		{
