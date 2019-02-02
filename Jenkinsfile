@@ -68,7 +68,7 @@ node{
 		
 		stage("cleanup")
 		{
-			// deleteDir()
+			
 			sh "docker container prune -f"
 			sh "docker rmi ${DOCKERHUB_REPO}:${DOCKER_IMAGE_VERSION}"
 		}
