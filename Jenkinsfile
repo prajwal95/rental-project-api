@@ -41,7 +41,7 @@ node{
 			if [ \$(docker service ls --filter name=${DOCKER_SERVICE_ID} --quiet | wc -l) -eq 0 ]; then
 				docker service create \
 					-- replicas 1 \
-					-- name ${DOCKER_SERVICE_ID}
+					-- name ${DOCKER_SERVICE_ID} \
 					
 					${DOCKERHUB_REPO}:${DOCKER_IMAGE_VERSION}
 			
