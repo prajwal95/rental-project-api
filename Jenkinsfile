@@ -40,8 +40,8 @@ node{
 			sh """
 			if [ \$(docker service ls --filter name=${DOCKER_SERVICE_ID} --quiet | wc -l) -eq 0 ]; then
 				docker service create \
-					-- replicas 1 \
 					-- name ${DOCKER_SERVICE_ID} \
+					-- replicas 1 \
 					--env spring.profiles.active=prod \
 					${DOCKERHUB_REPO}:${DOCKER_IMAGE_VERSION}
 			
