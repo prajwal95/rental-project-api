@@ -1,7 +1,7 @@
 node{
 		def DOCKERHUB_REPO = "prajwaldocker/rentalservice"
 		def DOCKER_SERVICE_ID = "rentalservice"
-		def DOCKER_IMAGE_VERSION = "latest"
+		def DOCKER_IMAGE_VERSION = ""
 		
 		stage("clean workspace")
 		{
@@ -12,7 +12,8 @@ node{
 		{
 		checkout scm
 		
-		
+		def GIT_COMMIT = sh(returnStdout: true, script: "git rev-parse HEAD").trim().take(7)
+		DOCKER_IMAGE_VERSION = "${BUILD_NUMBER}-${GIT_COMMIT}"
 		}
 		
 		stage("mvn build")
